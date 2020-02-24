@@ -14,17 +14,12 @@ class PostcodeApp < Sinatra::Base
     @postcode = Postcode.new(params[:my_postcode])
     @result = Result.new(@postcode)
     @show = @result.show_data
-    session[:my_postcode] = params[:my_postcode]
     session[:show] = @show
     redirect '/results'
   end
 
   get '/results' do
-    @my_postcode = session[:my_postcode]
-    @result = session[:result]
     @show = session[:show]
-
-    p @show
     erb :results
   end
 
