@@ -1,3 +1,3 @@
-require_relative './controllers/app'
+require_relative './app'
 
 run PostcodeApp
