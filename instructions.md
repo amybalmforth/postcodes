@@ -27,7 +27,7 @@ Documentation for the Postcodes.io API can be found at ​http://postcodes.io
 
 For an example, you can either simulate the API on postcodes.io itself, or you could run:
 
-curl ​http://postcodes.io/postcodes/SE17QD
+$ curl -si http://postcodes.io/postcodes/SE17QD
 
 This returns the following JSON:
 
