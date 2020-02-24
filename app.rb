@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/json'
 require './models/postcode'
+require './models/result'
 
 class PostcodeApp < Sinatra::Base
   enable :sessions
@@ -17,12 +18,14 @@ class PostcodeApp < Sinatra::Base
     @postcode = Postcode.new(params[:my_postcode])
     @result = Result.new(@postcode)
     @show = @result.show_data
+    p @show
     session[:my_postcode] = params[:my_postcode]
     redirect '/results'
   end
 
   get '/results' do
     @my_postcode = session[:my_postcode]
+    
     erb :results
   end
 
