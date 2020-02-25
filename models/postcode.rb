@@ -2,7 +2,7 @@ require 'httparty'
 require_relative 'result'
 
 class Postcode
-  attr_reader :my_postcode, :data
+  attr_reader :my_postcode, :data, :response
 
   def initialize(my_postcode)
     @my_postcode = my_postcode
