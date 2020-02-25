@@ -1,7 +1,5 @@
 require 'sinatra/base'
-require 'sinatra/json'
 require './models/postcode'
-require './models/result'
 
 class PostcodeApp < Sinatra::Base
   enable :sessions
@@ -30,6 +28,5 @@ class PostcodeApp < Sinatra::Base
     erb :results
   end
 
-  run! if app_file == $0
-
+  run! if app_file == $PROGRAM_NAME
 end

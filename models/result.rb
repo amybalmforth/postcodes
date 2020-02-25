@@ -1,4 +1,3 @@
-require 'httparty'
 require 'ruby_dig'
 require_relative 'postcode'
 require_relative 'whitelist'
@@ -20,13 +19,10 @@ class Result
     if data.dig('status') == 404
       @lsoa = data.dig('result', 'lsoa')
       @whitelist.final_lsoa = nil
-      return 'Invalid postcode'
+      'Invalid postcode'
     else
       @lsoa = data.dig('result', 'lsoa')
       @whitelist.final_lsoa = @lsoa
     end
   end
-
-
-
 end

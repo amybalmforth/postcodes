@@ -1,4 +1,3 @@
-require 'ruby_dig'
 require_relative 'postcode'
 require_relative 'result'
 
@@ -14,16 +13,13 @@ class Whitelist
   end
 
   def check_lsoa
-    if @final_lsoa == nil
-      return 'Invalid postcode'
-    end
-    array = @final_lsoa.split(" ")
+    return 'Invalid postcode' if @final_lsoa.nil?
+
+    array = @final_lsoa.split(' ')
     if array[0] == 'Southwark' || array[0] == 'Lambeth'
       return 'This postcode is servable'
     else
       return 'This postcode is not servable'
     end
   end
-
-
 end
