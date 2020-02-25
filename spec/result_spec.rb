@@ -23,6 +23,11 @@ describe Result do
     end
   end
   describe 'find_lsoa method' do
+    invalid_postcode = {"status"=>404, "error"=>"Invalid postcode"}
+    it 'can check if valid postcode' do
+      expect(result.find_lsoa(invalid_postcode)).to eq 'Invalid postcode'
+    end
+    
     it 'finds the lsoa' do
       expect(result.find_lsoa(my_hash)).to eq 'North Hertfordshire 005G'
     end

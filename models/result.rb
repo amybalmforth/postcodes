@@ -13,7 +13,11 @@ class Result
   end
 
   def find_lsoa(data)
-    data.dig('result', 'lsoa')
+    if data.dig('status') == 404
+      return 'Invalid postcode'
+    else
+      data.dig('result', 'lsoa')
+    end
   end
 
 
