@@ -27,7 +27,6 @@ class PostcodeApp < Sinatra::Base
     @lsoa = session[:lsoa]
     @whitelist = session[:whitelist]
     @final_result = @whitelist.check_lsoa
-    p @final_lsoa
     erb :results
   end
 

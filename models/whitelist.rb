@@ -14,6 +14,9 @@ class Whitelist
   end
 
   def check_lsoa
+    if @final_lsoa == nil
+      return 'Invalid postcode'
+    end
     array = @final_lsoa.split(" ")
     if array[0] == 'Southwark' || array[0] == 'Lambeth'
       return 'This postcode is servable'

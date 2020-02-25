@@ -18,6 +18,8 @@ class Result
 
   def find_lsoa(data)
     if data.dig('status') == 404
+      @lsoa = data.dig('result', 'lsoa')
+      @whitelist.final_lsoa = nil
       return 'Invalid postcode'
     else
       @lsoa = data.dig('result', 'lsoa')
