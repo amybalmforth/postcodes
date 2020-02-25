@@ -20,18 +20,20 @@ describe Whitelist do
     it 'each result is initialized with a whitelist' do
       expect(result.whitelist).to be_a Whitelist
     end
-  end
 
-  describe 'checking if postcode is whitelisted' do
-    it 'method decides if serviceable or not' do
-      p result
+    it 'has a final lsoa' do
+      allow(whitelist).to receive(:final_lsoa).and_return 'North Hertfordshire 005G'
+      expect(whitelist.final_lsoa).to eq 'North Hertfordshire 005G'
     end
   end
 
-  # describe 'find_lsoa method' do
-  #   invalid_postcode = {"status"=>404, "error"=>"Invalid postcode"}
-  #   it 'can check if valid postcode' do
-  #     expect(result.find_lsoa(invalid_postcode)).to eq 'Invalid postcode'
-  #   end
-  # end
+  describe 'checking if postcode is whitelisted' do
+
+    it 'method decides if serviceable or not' do
+      real_whitelist = Whitelist.new
+      real_whitelist.assign_lsoa('North Hertfordshire 005G')
+      expect(real_whitelist.check_lsoa).to eq 'This postcode is not serviceable'
+    end
+  end
+
 end

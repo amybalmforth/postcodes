@@ -21,6 +21,7 @@ class Result
       return 'Invalid postcode'
     else
       @lsoa = data.dig('result', 'lsoa')
+      @whitelist.final_lsoa = @lsoa
       @lsoa
     end
   end
