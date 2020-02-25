@@ -20,7 +20,7 @@ describe Result do
     end
   end
   describe 'find_lsoa method' do
-    invalid_postcode = {"status"=>404, "error"=>"Invalid postcode"}
+    invalid_postcode = { 'status' => 404, 'error' => 'Invalid postcode' }
     it 'can check if valid postcode' do
       allow(result).to receive(:find_lsoa).and_return('Invalid postcode')
       expect(result.find_lsoa(invalid_postcode)).to eq 'Invalid postcode'
