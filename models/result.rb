@@ -1,4 +1,5 @@
 require 'httparty'
+require 'ruby_dig'
 require_relative 'postcode'
 
 class Result
@@ -11,6 +12,9 @@ class Result
     @postcode.data
   end
 
+  def find_lsoa(data)
+    data.dig('result', 'lsoa')
+  end
 
 
 

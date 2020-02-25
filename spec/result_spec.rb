@@ -22,4 +22,9 @@ describe Result do
       expect(result.show_data).to eq my_hash
     end
   end
+  describe 'find_lsoa method' do
+    it 'finds the lsoa' do
+      expect(result.find_lsoa(my_hash)).to eq 'North Hertfordshire 005G'
+    end
+  end
 end
