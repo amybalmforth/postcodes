@@ -32,19 +32,19 @@ describe Whitelist do
     it 'method decides if serviceable or not' do
       real_whitelist = Whitelist.new
       real_whitelist.assign_lsoa('North Hertfordshire 005G')
-      expect(real_whitelist.check_lsoa).to eq 'This postcode is not serviceable'
+      expect(real_whitelist.check_lsoa).to eq 'This postcode is not servable'
     end
 
     it 'method confirms serviceable Southwark postcode' do
       real_whitelist_1 = Whitelist.new
       real_whitelist_1.assign_lsoa('Southwark 034A')
-      expect(real_whitelist_1.check_lsoa).to eq 'This postcode is serviceable'
+      expect(real_whitelist_1.check_lsoa).to eq 'This postcode is servable'
     end
 
     it 'method confirms serviceable Lambeth postcode' do
       real_whitelist_2 = Whitelist.new
       real_whitelist_2.assign_lsoa('Lambeth 036B')
-      expect(real_whitelist_2.check_lsoa).to eq 'This postcode is serviceable'
+      expect(real_whitelist_2.check_lsoa).to eq 'This postcode is servable'
     end
   end
 

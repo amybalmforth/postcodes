@@ -3,7 +3,7 @@ require_relative 'postcode'
 require_relative 'result'
 
 class Whitelist
-  attr_reader :final_lsoa
+  attr_accessor :final_lsoa
 
   def initialize
     @final_lsoa = final_lsoa
@@ -16,9 +16,9 @@ class Whitelist
   def check_lsoa
     array = @final_lsoa.split(" ")
     if array[0] == 'Southwark' || array[0] == 'Lambeth'
-      return 'This postcode is serviceable'
+      return 'This postcode is servable'
     else
-      return 'This postcode is not serviceable'
+      return 'This postcode is not servable'
     end
   end
 

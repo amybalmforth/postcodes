@@ -12,14 +12,18 @@ class PostcodeApp < Sinatra::Base
 
   post '/get_postcode' do
     @postcode = Postcode.new(params[:my_postcode])
-    @result = Result.new(@postcode)
+    @whitelist = Whitelist.new
+    @result = Result.new(@postcode, @whitelist)
     @show = @result.show_data
+    @lsoa = @result.find_lsoa(@show)
     session[:show] = @show
+    session[:lsoa] = @lsoa
     redirect '/results'
   end
 
   get '/results' do
     @show = session[:show]
+    @lsoa = session[:lsoa]
     erb :results
   end
 
