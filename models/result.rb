@@ -1,12 +1,14 @@
 require 'httparty'
 require 'ruby_dig'
 require_relative 'postcode'
+require_relative 'whitelist'
 
 class Result
-  attr_reader :lsoa
+  attr_reader :lsoa, :whitelist
 
-  def initialize(postcode = Postcode.new(my_postcode))
+  def initialize(postcode = Postcode.new(my_postcode), whitelist = Whitelist.new)
     @postcode = postcode
+    @whitelist = whitelist
     @lsoa = lsoa
   end
 
