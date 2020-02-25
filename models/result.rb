@@ -3,9 +3,11 @@ require 'ruby_dig'
 require_relative 'postcode'
 
 class Result
+  attr_reader :lsoa
 
   def initialize(postcode = Postcode.new(my_postcode))
     @postcode = postcode
+    @lsoa = lsoa
   end
 
   def show_data
@@ -16,7 +18,8 @@ class Result
     if data.dig('status') == 404
       return 'Invalid postcode'
     else
-      data.dig('result', 'lsoa')
+      @lsoa = data.dig('result', 'lsoa')
+      @lsoa
     end
   end
 
