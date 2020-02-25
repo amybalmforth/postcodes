@@ -18,12 +18,15 @@ class PostcodeApp < Sinatra::Base
     @lsoa = @result.find_lsoa(@show)
     session[:show] = @show
     session[:lsoa] = @lsoa
+    session[:whitelist] = @whitelist
     redirect '/results'
   end
 
   get '/results' do
     @show = session[:show]
     @lsoa = session[:lsoa]
+    @whitelist = session[:whitelist]
+    @final_result = @whitelist.check_lsoa
     erb :results
   end
 

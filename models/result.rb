@@ -22,8 +22,6 @@ class Result
     else
       @lsoa = data.dig('result', 'lsoa')
       @whitelist.final_lsoa = @lsoa
-      p @whitelist.final_lsoa
-      @lsoa
     end
   end
 
