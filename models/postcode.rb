@@ -1,5 +1,6 @@
 require 'httparty'
 require_relative 'result'
+require_relative 'whitelist'
 
 class Postcode
   attr_reader :my_postcode, :data, :response

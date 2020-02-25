@@ -2,13 +2,16 @@
 
 
 
-# Instructions for running
+# Instructions for setup
 
 ```
 $ git clone https://github.com/amybalmforth/postcodes.git
+$ cd postcodes
 $ bundle install
 $ rspec
 $ rubocop
+$ rackup
+$ visit in browser: http://localhost:9292
 ```
 
 # Demonstration of how the code works in IRB

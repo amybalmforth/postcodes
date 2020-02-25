@@ -1,1 +1,9 @@
+<% if @my_postcode.upcase.gsub(/\s+/, '') == 'SH241AA' || @my_postcode.upcase.gsub(/\s+/, '') == 'SH241AB' %>
+
+<%= 'This postcode is servable' %>
+
+<% else %>
+
 <%= @final_result %>
+
+<% end %>

@@ -14,6 +14,7 @@ class PostcodeApp < Sinatra::Base
     @result = Result.new(@postcode, @whitelist)
     @show = @result.show_data
     @lsoa = @result.find_lsoa(@show)
+    session[:my_postcode] = @postcode.my_postcode
     session[:show] = @show
     session[:lsoa] = @lsoa
     session[:whitelist] = @whitelist
@@ -21,10 +22,12 @@ class PostcodeApp < Sinatra::Base
   end
 
   get '/results' do
+    @my_postcode = session[:my_postcode]
     @show = session[:show]
     @lsoa = session[:lsoa]
     @whitelist = session[:whitelist]
     @final_result = @whitelist.check_lsoa
+    p @my_postcode
     erb :results
   end
 

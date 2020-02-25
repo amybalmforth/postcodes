@@ -1,7 +1,7 @@
 feature 'non servable postcode' do
   scenario 'visiting the homepage' do
     visit('/')
-    expect(page).to have_content('postcodes.')
+    expect(page).to have_content('Postcode service area check')
   end
 
   scenario 'entering a non servable postcode' do
