@@ -1,6 +1,6 @@
 ## Description of the program
 
-This is a web application which utilises the Postcodes API (​http://postcodes.io). The user can input and submit any postcode in the search box, the program will call the Postcodes API and use the payload to determine whether the given postcode is within a specific whitelist - returning either "Servable", "Not servable" or "Non-existant postcode".
+This is a web application which utilises the Postcodes API (​http://postcodes.io). The user can input and submit any postcode in the search box, the application will call the Postcodes API and use the payload to determine whether the given postcode is within a specific whitelist - returning either "Servable", "Not servable" or "Non-existant postcode".
 
 #### Whitelisted postcodes:
 
