@@ -2,7 +2,8 @@ require_relative 'postcode'
 require_relative 'result'
 
 class Whitelist
-  attr_accessor :final_lsoa, :accepted_lsoa_1, :accepted_lsoa_2
+  attr_accessor :final_lsoa
+  attr_reader :accepted_lsoa1, :accepted_lsoa2
 
   def initialize(*)
     @final_lsoa = final_lsoa
