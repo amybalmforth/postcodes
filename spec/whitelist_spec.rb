@@ -85,7 +85,7 @@ describe Whitelist do
   before do
     allow(postcode).to receive(:data).and_return(my_hash)
     allow(postcode).to receive(:response).and_return(my_response)
-    allow(result).to receive(:whitelist).and_return(Whitelist.new)
+    allow(result).to receive(:whitelist).and_return(Whitelist.new('Southwark', 'Lambeth'))
   end
 
   describe 'create new instance of whitelist class' do
@@ -101,19 +101,19 @@ describe Whitelist do
 
   describe 'checking if postcode is whitelisted' do
     it 'method decides if serviceable or not' do
-      real_whitelist = Whitelist.new
+      real_whitelist = Whitelist.new('Southwark', 'Lambeth')
       real_whitelist.assign_lsoa('North Hertfordshire 005G')
       expect(real_whitelist.check_lsoa).to eq 'This postcode is not servable'
     end
 
     it 'method confirms serviceable Southwark postcode' do
-      real_whitelist1 = Whitelist.new
+      real_whitelist1 = Whitelist.new('Southwark', 'Lambeth')
       real_whitelist1.assign_lsoa('Southwark 034A')
       expect(real_whitelist1.check_lsoa).to eq 'This postcode is servable'
     end
 
     it 'method confirms serviceable Lambeth postcode' do
-      real_whitelist2 = Whitelist.new
+      real_whitelist2 = Whitelist.new('Southwark', 'Lambeth')
       real_whitelist2.assign_lsoa('Lambeth 036B')
       expect(real_whitelist2.check_lsoa).to eq 'This postcode is servable'
     end

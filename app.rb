@@ -10,7 +10,7 @@ class PostcodeApp < Sinatra::Base
 
   post '/get_postcode' do
     @postcode = Postcode.new(params[:my_postcode])
-    @whitelist = Whitelist.new
+    @whitelist = Whitelist.new('Southwark', 'Lambeth')
     @result = Result.new(@postcode, @whitelist)
     @show = @result.show_data
     @lsoa = @result.find_lsoa(@show)
