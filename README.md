@@ -1,6 +1,6 @@
 ## Description of the program
 
-This is a web application which utilises the Postcodes API. The user can input and submit any postcode in the search box, the program will call the Postcodes API and use the payload to determine whether the given postcode is within a specific whitelist - returning either "Servable", "Not servable" or "Non-existant postcode".
+This is a web application which utilises the Postcodes API(​http://postcodes.io). The user can input and submit any postcode in the search box, the program will call the Postcodes API and use the payload to determine whether the given postcode is within a specific whitelist - returning either "Servable", "Not servable" or "Non-existant postcode".
 
 #### Whitelisted postcodes:
 
@@ -9,7 +9,7 @@ This is a web application which utilises the Postcodes API. The user can input a
 
 ### How it works
 
-I built the program with four objects/classes:
+I built the program with three classes:
 
 * Postcode class - Stores the input postcode, makes the API call with it, stores the HTTP response body
 
@@ -20,6 +20,8 @@ I built the program with four objects/classes:
 I built a separate Whitelist class in case the user wishes to change the whitelist - this is defaulted to Southwark and Lambeth but different LSOAs can be passed in on creation of the class.
 
 The part I feel could be improved is the point where the additional postcodes (not tracked by API) are checked. These are checked at the final stage in the view (results.erb). I feel it would be better if the check was done earlier, so given more time I would like to try and implement that, although at least this makes the additional postcodes fairly easy to change if needed.
+
+The models are unit tested with Rspec and there are Capybara feature tests for each scenario (servable, non-servable and non-existant postcode)
 
 ### Instructions for setup, running tests and running application
 

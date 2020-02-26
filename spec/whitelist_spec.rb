@@ -85,7 +85,8 @@ describe Whitelist do
   before do
     allow(postcode).to receive(:data).and_return(my_hash)
     allow(postcode).to receive(:response).and_return(my_response)
-    allow(result).to receive(:whitelist).and_return(Whitelist.new('Southwark', 'Lambeth'))
+    allow(result).to receive(:whitelist).and_return(Whitelist.new('Southwark'\
+      , 'Lambeth'))
   end
 
   describe 'create new instance of whitelist class' do
@@ -94,7 +95,8 @@ describe Whitelist do
     end
 
     it 'has a final lsoa' do
-      allow(whitelist).to receive(:final_lsoa).and_return 'North Hertfordshire 005G'
+      allow(whitelist).to receive(:final_lsoa).and_return 'North Hertfordshir'\
+      'e 005G'
       expect(whitelist.final_lsoa).to eq 'North Hertfordshire 005G'
     end
   end

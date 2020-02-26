@@ -5,7 +5,8 @@ require_relative 'whitelist'
 class Result
   attr_reader :lsoa, :whitelist
 
-  def initialize(postcode = Postcode.new(my_postcode), whitelist = Whitelist.new)
+  def initialize(postcode = Postcode.new(my_postcode), whitelist = Whitelist\
+    .new)
     @postcode = postcode
     @whitelist = whitelist
     @lsoa = lsoa
@@ -16,12 +17,11 @@ class Result
   end
 
   def find_lsoa(data)
+    @lsoa = data.dig('result', 'lsoa')
     if data.dig('status') == 404
-      @lsoa = data.dig('result', 'lsoa')
       @whitelist.final_lsoa = nil
       'Invalid postcode'
     else
-      @lsoa = data.dig('result', 'lsoa')
       @whitelist.final_lsoa = @lsoa
     end
   end

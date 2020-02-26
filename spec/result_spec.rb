@@ -46,7 +46,8 @@ describe Result do
   before do
     allow(postcode).to receive(:data).and_return(my_hash)
     allow(result).to receive(:show_data).and_return(my_hash)
-    allow(whitelist).to receive(:final_lsoa).and_return 'North Hertfordshire 005G'
+    allow(whitelist).to receive(:final_lsoa).and_return 'North Hertfordshire'\
+    ' 005G'
   end
 
   describe 'show_data method' do
@@ -66,7 +67,8 @@ describe Result do
     end
 
     it 'finds the lsoa' do
-      allow(result).to receive(:find_lsoa).and_return('North Hertfordshire 005G')
+      allow(result).to receive(:find_lsoa).and_return('North Hertfordshire 00'\
+        '5G')
       expect(result.find_lsoa(my_hash)).to eq 'North Hertfordshire 005G'
     end
 
